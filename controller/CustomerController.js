@@ -2,20 +2,47 @@ import CustomerModel from "../model/CustomerModel.js";
 
 import {customerArray} from "../db/database.js";
 
+import {loadCustomers} from "./OrderController.js";
+
+
 
 /*------------  CUSTOMER SECTION  -------------*/
 
 let selected_customer_index = null;
+
+$(document).ready(function (){
+    $("#customer_id").val(generateCustomerId());
+})
+
+
+//EMAIL VALIDATION
 
 const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
 }
 
+//MOBILE VALIDATION
+
 const validateMobile = (mobile) => {
     const sriLankanMobileRegex = /^(?:\+94|0)?7[0-9]{8}$/;
     return sriLankanMobileRegex.test(mobile);
 }
+
+//GENERATE CUSTOMER ID
+
+let generateCustomerId = function generateCustomerId(){
+
+    let id = customerArray.length + 1;
+    return "C0" + id;
+}
+
+let setCustomerId = () => {
+    $("#customer_id").val(generateCustomerId());
+}
+
+
+//LOAD CUSTOMER TABLE
 
 const loadCustomerTable = () => {
         $("#customerTableBody").empty();
@@ -32,19 +59,13 @@ const loadCustomerTable = () => {
 
 $('#cusSaveBtn').on('click',function (){
 
-    let customer_id = $('#customer_id').val();
+    let customer_id = generateCustomerId();
     let name = $('#customer_name').val();
     let address = $('#address').val();
     let email = $('#email').val();
     let contact = $('#contact').val();
 
-    if(customer_id.length===0) {
-        Swal.fire({
-            icon: "error",
-            title: "Invalid Input",
-            text: "Invalid Customer ID",
-        });
-    }else if (name.length == 0){
+   if (name.length == 0){
         Swal.fire({
             icon: "error",
             title: "Invalid Input",
@@ -71,7 +92,7 @@ $('#cusSaveBtn').on('click',function (){
     }
     else{
         let customer = new CustomerModel(
-            customerArray.length + 1,
+            customer_id,
             name,
             address,
             email,
@@ -88,6 +109,9 @@ $('#cusSaveBtn').on('click',function (){
                 timer: 1500
             });
             loadCustomerTable();
+            loadCustomers();
+            clearForm();
+            setCustomerId();
 
         }else{
             Swal.fire({
@@ -222,12 +246,15 @@ function loadCustomerTable2(customers) {
 
 $('#cusClearBtn').on('click',function (){
 
+    clearForm();
+
+});
+
+function clearForm(){
+
     $('#customer_id').val("");
     $('#customer_name').val("");
     $('#address').val("");
     $('#email').val("");
     $('#contact').val("");
-
-});
-
-
+}
