@@ -176,7 +176,8 @@ $('#cusUpdateBtn').on('click',function (){
    customerArray[selected_customer_index] = customer
 
     loadCustomerTable();
-
+    clearForm();
+    setCustomerId();
 
 });
 
@@ -200,7 +201,8 @@ $('#cusDeleteBtn').on('click',function (){
             customerArray.splice(selected_customer_index);
 
             loadCustomerTable();
-
+            clearForm();
+            setCustomerId();
 
             Swal.fire({
                 title: "Deleted!",

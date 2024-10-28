@@ -1,11 +1,29 @@
 import ItemModel from "../model/ItemModel.js";
 import {itemArray} from "../db/database.js";
-
+import {loadItems} from "./OrderController.js";
 
 /*------------  ITEM SECTION  -------------*/
 
 
 let selected_item_index = null;
+
+$(document).ready(function (){
+    $("#item_code").val(generateItemCode());
+})
+
+//GENERATE ITEM CODE
+
+let generateItemCode = function generateItemCode(){
+
+    let id = itemArray.length + 1;
+    return "I0" + id;
+}
+
+let setItemCode = () => {
+    $("#item_code").val(generateItemCode());
+}
+
+//LOAD ITEM TABLE
 
 const loadItemTable = () => {
     $("#itemTableBody").empty();
@@ -21,13 +39,13 @@ const loadItemTable = () => {
 
 $('#itemSaveBtn').on('click',function (){
 
-    let item_code = $("#item_code").val();
+    let item_code = generateItemCode();
     let description = $("#description").val();
     let unit_price = $("#price").val();
     let quantity = $("#qty").val();
 
     let item = new ItemModel(
-        itemArray.length+1,
+        item_code,
         description,
         unit_price,
         quantity
@@ -44,6 +62,9 @@ $('#itemSaveBtn').on('click',function (){
         });
 
         loadItemTable();
+        loadItems();
+        clearForm();
+        setItemCode();
 
     }else{
         Swal.fire({
@@ -102,6 +123,8 @@ $('#itemUpdateBtn').on('click',function (){
     itemArray[index] = item;
 
     loadItemTable();
+    clearForm();
+    setItemCode();
 
 });
 
@@ -125,7 +148,8 @@ $('#itemDeleteBtn').on('click',function (){
             itemArray.splice(selected_item_index);
 
             loadItemTable();
-
+            clearForm();
+            setItemCode();
 
             Swal.fire({
                 title: "Deleted!",
@@ -170,13 +194,19 @@ function loadItemTable2(items) {
 
 }
 
-//CLEAR ITEM FORM
 
 $('#itemClearBtn').on('click',function (){
+
+    clearForm();
+});
+
+
+//CLEAR FORM
+
+function clearForm(){
 
     $('#item_code').val("");
     $('#description').val("");
     $('#price').val("");
     $('#qty').val("");
-
-});
+}
