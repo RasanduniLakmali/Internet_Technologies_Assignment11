@@ -167,7 +167,6 @@ $('#cartBtn').on('click',function (){
 
         loadCartTable();
         updateItemArray();
-        setOrderId();
 
         console.log(itemArray);
     }
@@ -229,10 +228,16 @@ $("#order_btn").on('click',function (){
 
    if(orderArray.push(order) && orderDetailArray.push(orderDetail)){
 
+       console.log(order);
+       console.log(orderDetail);
+
        Swal.fire({
            title: "Order Placed Successfully!",
            icon: "success"
        });
+
+       clearOrderForm();
+       setOrderId();
 
    }else{
 
@@ -246,6 +251,26 @@ $("#order_btn").on('click',function (){
 
 });
 
+function clearOrderForm(){
+
+    $("#items").val('');
+    $("#itemPrice").val('');
+    $("#itemName").val('');
+    $("#itemQty").val('');
+    $("#itemQtyOnHand").val('');
+    $("#orderId").val('');
+    $("#date").val('');
+    $("#customers").val('');
+    $("#customerName").val('');
+    $("#inputTotal").val('');
+    clearTable();
+}
 
 
+//CLEAR TABLE
+
+function clearTable() {
+    let tableBody = $("#orderTableBody")[0];
+    tableBody.innerHTML = ''; // Clear all rows
+}
 
