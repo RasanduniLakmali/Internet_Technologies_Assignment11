@@ -84,22 +84,33 @@ $("#items").on('input', function (){
 // });
 
 
-//GET CUSTOMER DETAILS WHEN CUSTOMER ID IS ENTERED
+//GET CUSTOMER DETAILS WHEN CUSTOMER NAME IS ENTERED
 
-$("#customers").on('change', function () {
+$("#customerName").on('input', function () {
 
-    let id = $(this).val();
+    let name = $(this).val().toLowerCase();
 
-    let customer = customerArray.find(item => item._customer_id === id);
+    let customer = customerArray.find(item => item._name.toLowerCase().includes(name));
 
-    // Check if customer exists
     if (customer) {
-        $("#customerName").val(customer._name);
+
+        $("#customers").val(customer._customer_id);
+
     } else {
-        $("#customerName").val('');
+
+        Swal.fire({
+
+            icon: "error",
+            title: "Oops...",
+            text: "Customer not found!",
+
+        });
+
+        $("#customers").val('');
     }
 
 });
+
 
 
 //LOAD CART TABLE
