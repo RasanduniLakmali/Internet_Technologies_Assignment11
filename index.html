@@ -451,7 +451,9 @@
                             <input type="text" class="form-control" id="itemName" aria-describedby="emailHelp" placeholder="Enter item name">
                             <label for="itemPrice" class="form-label" id="unitPrice">Unit Price</label>
                             <input type="text" class="form-control" id="itemPrice" aria-describedby="emailHelp" placeholder="Enter item price">
-                            <label for="itemQty" class="form-label" id="qty2">Quantity</label>
+                            <label for="itemQty" class="form-label" id="qty2">Qty On Hand</label>
+                            <input type="text" class="form-control" id="itemQtyOnHand" aria-describedby="emailHelp" placeholder="Enter qty on hand">
+                            <label for="itemQty" class="form-label" id="qtyLbl">Quantity</label>
                             <input type="text" class="form-control" id="itemQty" aria-describedby="emailHelp" placeholder="Enter quantity"><br>
                             <button type="button" class="btn btn-success" id="cartBtn">Add to cart</button>
                         </div>
@@ -477,20 +479,8 @@
                 </tr>
                 </thead>
                 <tbody id="orderTableBody">
-<!--                <tr>-->
-<!--                    <td>I001</td>-->
-<!--                    <td>Cappucino</td>-->
-<!--                    <td>500.00</td>-->
-<!--                    <td>4</td>-->
-<!--                    <td>2000.00</td>-->
-<!--                </tr>-->
-<!--                <tr>-->
-<!--                    <td>I002</td>-->
-<!--                    <td>Coffee Latte</td>-->
-<!--                    <td>800.00</td>-->
-<!--                    <td>1</td>-->
-<!--                    <td>800.00</td>-->
-<!--                </tr>-->
+
+                    <tr></tr>
 
                 </tbody>
             </table>
@@ -505,7 +495,7 @@
                     <input type="text" id="inputTotal" class="form-control" aria-describedby="passwordHelpInline">
                 </div>
             </div>
-            <button type="button" class="btn btn-success order_btn">Place Order</button>
+            <button type="button" class="btn btn-success" id="order_btn">Place Order</button>
         </div>
 
     </div>
