@@ -44,36 +44,68 @@ $('#itemSaveBtn').on('click',function (){
     let unit_price = $("#price").val();
     let quantity = $("#qty").val();
 
-    let item = new ItemModel(
-        item_code,
-        description,
-        unit_price,
-        quantity
-    );
+    if(description.length == 0){
 
-    if(itemArray.push(item)){
-
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Item has been saved successfully!",
-            showConfirmButton: false,
-            timer: 1500
-        });
-
-        loadItemTable();
-        loadItems();
-        clearForm();
-        setItemCode();
-
-    }else{
         Swal.fire({
             icon: "error",
-            title: "Oops...",
-            text: "Item not been saved!!",
-
+            title: "Invalid Input",
+            text: "Invalid description",
         });
+
+    }else if(unit_price.length == 0){
+
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Input",
+            text: "Invalid unit price",
+        });
+
+    }else if(quantity.length == 0){
+
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Input",
+            text: "Invalid quantity",
+        });
+
+    }else{
+
+        let item = new ItemModel(
+            item_code,
+            description,
+            unit_price,
+            quantity
+        );
+
+        if(itemArray.push(item)){
+
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Item has been saved successfully!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            loadItemTable();
+            loadItems();
+            clearForm();
+            setItemCode();
+
+        }else{
+
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Item not been saved!!",
+
+            });
+
+        }
     }
+
+
+
 
 });
 
