@@ -56,10 +56,11 @@
 
 
     <!-- Login Form -->
+
     <div class="col-md-4">
         <div class="card loginCard">
             <div class="card-body login_cover">
-                <form>
+                <form id="loginForm">
                     <h5 id="heading1" class="text-center">Login</h5>
                     <div class="mb-3" id="field1">
                         <label for="inputEmail" class="form-label labels">Email address</label>
@@ -72,10 +73,9 @@
                 </form>
 
                 <div class="d-grid gap-2 col-12 col-md-6 col-lg-4 mx-auto">
-                    <a href="">
-<!--                        <button class="btn btn-primary" type="submit" id="login_btn">Login</button>-->
-                        <input type="button" value="Login" id="login_btn" class="btn btn-primary">
-                    </a>
+
+                    <button type="button" value="Login" id="login_btn" class="btn btn-primary">Login</button>
+
                 </div>
             </div>
         </div>
@@ -514,6 +514,7 @@
     $("#item_content").hide();
     $("#order_content").hide();
     $("#login_content").hide();
+    $("#home_content").show();
 
 
     $("#home_nav").on("click" ,function (){
@@ -551,6 +552,7 @@
 
     $("#login_nav").on("click",function (){
         $("#login_content").show();
+        $(".navbar").hide();
         $("#item_content").hide();
         $("#customer_content").hide();
         $("#home_content").hide();
@@ -562,6 +564,7 @@
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
+<script type="module" src="controller/LoginController.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
