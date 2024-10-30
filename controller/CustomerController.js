@@ -54,6 +54,8 @@ const loadCustomerTable = () => {
     })
 }
 
+let customerCount = 0;
+$('#customer-count').text(customerCount);
 
 //SAVE CUSTOMER
 
@@ -112,6 +114,9 @@ $('#cusSaveBtn').on('click',function (){
             loadCustomers();
             clearForm();
             setCustomerId();
+
+            customerCount += 1;
+            $('#customer-count').text(customerCount);
 
         }else{
             Swal.fire({

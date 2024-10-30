@@ -16,10 +16,13 @@
 <!--  Navbar -->
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow">
+
     <div class="container">
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <a class="navbar-brand" href="#"><span id="brand_first_word">Cozy</span>Coffee</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav ms-auto">
@@ -91,7 +94,7 @@
         <div class="card h-100 countSection">
             <div class="card-body">
                 <h5 class="card-title text-center countHeading">CUSTOMERS</h5>
-                <h5 class="card-title text-center count">10</h5>
+                <h5 class="card-title text-center count" id="customer-count"></h5>
                 <img src="assets/images/customer.png">
             </div>
         </div>
@@ -102,8 +105,8 @@
 
             <div class="card-body">
                 <h5 class="card-title text-center countHeading">ORDERS</h5>
-                <h5 class="card-title text-center count">50</h5>
-                <img src="assets/images/item.png">
+                <h5 class="card-title text-center count" id="order-count"></h5>
+                <img src="assets/images/order.png">
             </div>
         </div>
     </div>
@@ -112,8 +115,8 @@
 
             <div class="card-body">
                 <h5 class="card-title text-center countHeading">ITEMS</h5>
-                <h5 class="card-title text-center count">40</h5>
-                <img src="assets/images/order.png">
+                <h5 class="card-title text-center count" id="item-count"></h5>
+                <img src="assets/images/item.png">
             </div>
         </div>
     </div>
