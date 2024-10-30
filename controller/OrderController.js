@@ -208,6 +208,10 @@ function updateItemArray() {
     }
 }
 
+let orderCount = 0;
+$('#order-count').text(orderCount);
+
+
 
 //PLACE ORDER
 
@@ -249,6 +253,9 @@ $("#order_btn").on('click',function (){
 
        clearOrderForm();
        setOrderId();
+
+       orderCount += 1;
+       $('#order-count').text(orderCount);
 
    }else{
 
