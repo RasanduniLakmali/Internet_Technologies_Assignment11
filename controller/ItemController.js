@@ -34,6 +34,9 @@ const loadItemTable = () => {
     })
 }
 
+let itemCount = 0;
+$('#item-count').text(itemCount);
+
 
 //SAVE ITEM
 
@@ -91,6 +94,9 @@ $('#itemSaveBtn').on('click',function (){
             loadItems();
             clearForm();
             setItemCode();
+
+            itemCount += 1;
+            $('#item-count').text(itemCount);
 
         }else{
 
