@@ -140,7 +140,7 @@
 
                     <!-- Customer Form -->
 
-                    <div class="card">
+                    <div class="card forms">
                         <div class="card-body details">
                             <form>
                                 <div class="mb-3">
@@ -176,7 +176,7 @@
                 <div class="col-md-8">
                     <!-- Search Form -->
 
-                    <div class="card">
+                    <div class="card" id="customer_table">
                         <div class="card-body">
 
                             <div class="row" >
@@ -411,7 +411,7 @@
 
                     <!-- Invoice Details -->
 
-                    <div class="card">
+                    <div class="card orderForms">
                         <div class="card-body">
                             <h5 class="od_headings text-center">Invoice Details</h5>
 
@@ -441,7 +441,7 @@
 
                     <!-- Item Details -->
 
-                    <div class="card">
+                    <div class="card orderForms">
                         <div class="card-body">
                             <h5 class="od_headings text-center">Item Details</h5>
 
@@ -516,8 +516,8 @@
     $("#customer_content").hide();
     $("#item_content").hide();
     $("#order_content").hide();
-    $("#login_content").hide();
-    $("#home_content").show();
+    $("#login_content").show();
+    $("#home_content").hide();
 
 
     $("#home_nav").on("click" ,function (){

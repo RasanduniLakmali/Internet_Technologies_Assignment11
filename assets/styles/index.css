@@ -98,15 +98,15 @@ body{
     padding-left: 170px;
 }
 #order_content{
-    background: #dfd3d1;
+    background: linear-gradient(#e2c6bb,#eebca2 );
     border-radius: 40px;
 }
 #customer_content{
-    background: #eee6e6;
+    background: linear-gradient(#e2c6bb,#eebca2 );
     border-radius: 40px;
 }
 #item_content{
-    background: #eee6e6;
+    background: linear-gradient(#e2c6bb,#eebca2 );
     border-radius: 40px;
 }
 #login_content{
@@ -114,7 +114,6 @@ body{
 }
 #logo{
     height: 160px;
-
 }
 
 #login_btn{
@@ -137,7 +136,16 @@ body{
     border: none;
     box-shadow: none;
 }
+.details{
+    box-shadow: 10px 10px 5px gray;
 
+}
+#customer_table{
+    box-shadow: 10px 10px 5px gray;
+}
+.orderForms{
+    box-shadow: 10px 10px 5px gray;
+}
 @media (max-width: 500px) {
    body{
        height: 112vh;

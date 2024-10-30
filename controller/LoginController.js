@@ -13,6 +13,7 @@ $("#login_btn").on('click',function (){
 
             $("#login_content").hide();
             $("#home_content").show();
+            $(".navbar").show();
 
         }
     }
