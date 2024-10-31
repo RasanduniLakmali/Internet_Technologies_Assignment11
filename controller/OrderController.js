@@ -54,7 +54,7 @@ $("#items").on('input', function (){
                           item._item_code === id);
 
     if(itemCode !== 'item_code' ){
-
+        
         $("#itemName").val(itemArray[itemCode]._description);
         $("#itemPrice").val(itemArray[itemCode]._unit_price);
         $("#itemQtyOnHand").val(itemArray[itemCode]._quantity);
@@ -66,6 +66,8 @@ $("#items").on('input', function (){
     }
 
 });
+
+
 
 
 // $("#customers").on('input',function (){
